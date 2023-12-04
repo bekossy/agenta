@@ -18,6 +18,5 @@ jobs:
           node-version: 20
 
       - name: Run Prettier
-        run: |
-          cd agenta-web/ && npm run format
+        run: cd agenta-web/ && npm run format
         working-directory: agenta-web
