@@ -18,5 +18,6 @@ jobs:
           node-version: 20
 
       - name: Run Prettier
-        run: npx prettier --check .
+        run: |
+          cd agenta-web/ && npm run format
         working-directory: agenta-web
