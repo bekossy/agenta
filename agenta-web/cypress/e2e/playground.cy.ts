@@ -18,3 +18,5 @@ describe("Playground Prompt Test", function () {
         cy.cleanupVariantAndTestset()
     })
 })
+
+Cypress.Screenshot.defaults({capture: "runner"})
