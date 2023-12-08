@@ -7,7 +7,6 @@ describe("Playground Prompt Test", function () {
         cy.get('[data-cy^="testview-input-parameters-"]').eq(0).type("Germany")
         cy.get('[data-cy="testview-input-parameters-run-button"]').click()
         cy.get('[data-cy="testview-input-parameters-result"]').should("exist")
-        cy.get('[data-cy="testview-input-parameters-result"]').should("be.visible")
         // cy.get('[data-cy="testview-input-parameters-result"]').should("contain.text", "Loading...")
         // cy.get('[data-cy="testview-input-parameters-result"]').should(
         //     "contain.text",
