@@ -59,8 +59,6 @@ describe("Code Evaluation workflow", () => {
             cy.get('[data-cy="selected-testset"]').trigger("mouseout")
 
             cy.clickLinkAndWait('[data-cy="start-new-evaluation-button"]')
-
-            cy.clickLinkAndWait('[data-cy="start-new-evaluation-button"]')
             cy.url().should("include", "/custom_code_run")
             cy.wait(1500)
             cy.contains(/Custom Code Evaluation/i)
