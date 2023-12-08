@@ -61,6 +61,9 @@ describe("Code Evaluation workflow", () => {
             cy.clickLinkAndWait('[data-cy="start-new-evaluation-button"]')
             cy.url().should("include", "/custom_code_run")
             cy.wait(1500)
+            cy.url().then((url) => {
+                cy.log("Current URL: " + url)
+            })
             cy.contains(/Custom Code Evaluation/i)
             cy.clickLinkAndWait('[data-cy="code-evaluation-run-all-button"]')
             cy.get(".ant-spin").should("exist")
