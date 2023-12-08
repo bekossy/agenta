@@ -187,17 +187,18 @@ const BoxComponent: React.FC<BoxComponentProps> = ({
                     </Button>
                 </Col>
             </Row>
-            {!isChatVariant && (
-                <Row className={classes.row3}>
-                    <TextArea
-                        data-cy="testview-input-parameters-result"
-                        value={result}
-                        rows={6}
-                        placeholder="Results will be shown here"
-                        disabled={!result || result === LOADING_TEXT}
-                    />
-                </Row>
-            )}
+            <div data-cy="testview-input-parameters-result">
+                {!isChatVariant && (
+                    <Row className={classes.row3}>
+                        <TextArea
+                            value={result}
+                            rows={6}
+                            placeholder="Results will be shown here"
+                            disabled={!result || result === LOADING_TEXT}
+                        />
+                    </Row>
+                )}
+            </div>
         </Card>
     )
 }
