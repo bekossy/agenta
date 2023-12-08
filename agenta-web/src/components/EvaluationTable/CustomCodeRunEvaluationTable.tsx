@@ -472,11 +472,11 @@ const CustomCodeRunEvaluationTable: React.FC<CustomCodeEvaluationTableProps> = (
                     <Col span={12}>
                         <Space>
                             <Button
-                                data-cy="code-evaluation-run"
                                 type="primary"
                                 onClick={runAllEvaluations}
                                 icon={<LineChartOutlined />}
                                 size="large"
+                                data-cy="code-evaluation-run-all-button"
                             >
                                 Run Evaluation
                             </Button>
