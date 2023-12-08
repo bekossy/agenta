@@ -137,27 +137,20 @@ const BoxComponent: React.FC<BoxComponentProps> = ({
     return (
         <Card className={classes.card}>
             <Row className={classes.rowHeader}>
-                <h4>{isChatVariant ? "Chat" : "Input parameters"}</h4>
+                <h4>Input parameters</h4>
                 {onDelete && <Button icon={<DeleteOutlined />} onClick={onDelete}></Button>}
             </Row>
 
             <Row className={classes.row1}>
-                {isChatVariant ? (
-                    <ChatInputs
-                        value={testData.chat}
-                        onChange={(val) => onInputParamChange("chat", val)}
+                {inputParamsNames.map((key, index) => (
+                    <TextArea
+                        data-cy={`testview-input-parameters-${index}`}
+                        key={index}
+                        value={testData[key]}
+                        placeholder={renameVariables(key)}
+                        onChange={(e) => onInputParamChange(key, e.target.value)}
                     />
-                ) : (
-                    inputParamsNames.map((key, index) => (
-                        <TextArea
-                            data-cy={`testview-input-parameters-${index}`}
-                            key={index}
-                            value={testData[key]}
-                            placeholder={renameVariables(key)}
-                            onChange={(e) => onInputParamChange(key, e.target.value)}
-                        />
-                    ))
-                )}
+                ))}
             </Row>
             <Row className={classes.row2} style={{marginBottom: isChatVariant ? 12 : 0}}>
                 <Col span={24} className={classes.row2Col}>
@@ -187,17 +180,15 @@ const BoxComponent: React.FC<BoxComponentProps> = ({
                     </Button>
                 </Col>
             </Row>
-            {!isChatVariant && (
-                <Row className={classes.row3}>
-                    <TextArea
-                        data-cy="testview-input-parameters-result"
-                        value={result}
-                        rows={6}
-                        placeholder="Results will be shown here"
-                        disabled={!result || result === LOADING_TEXT}
-                    />
-                </Row>
-            )}
+            <Row className={classes.row3}>
+                <TextArea
+                    data-cy="testview-input-parameters-result"
+                    value={result}
+                    rows={6}
+                    placeholder="Results will be shown here"
+                    disabled={!result || result === LOADING_TEXT}
+                />
+            </Row>
         </Card>
     )
 }
